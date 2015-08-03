@@ -63,7 +63,8 @@ app.get('/', function (req, res) {
   query.treeView ? res.json(resArr) : res.json(flatTree);
 });
 
-var server = app.listen(3000, function () {
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server = app.listen(server_port, function () {
   var host = server.address().address;
   var port = server.address().port;
 

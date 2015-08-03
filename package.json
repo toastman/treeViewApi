@@ -1,12 +1,12 @@
 {
   "name": "eleksTreeDataGenerator",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Simple api for treeView menu",
   "scripts": {
     "start": "node server.js"
   },
-  "main": "server.js"
-  "author": "",
+  "main": "server.js",
+  "author": "Andriy Vandakurov",
   "license": "ISC",
   "dependencies": {
     "biguint-format": "^1.0.0",
