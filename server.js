@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
       query = url_parts.query,
       roots = query.roots || 5,
       levels = query.levels || 3,
-      children = query.children || 1;
+      children = query.children || 2;
 
   for(var i = 0, l = roots; i < l; i++){
     var rootEl = generateLevel(),
