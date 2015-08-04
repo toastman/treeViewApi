@@ -7,7 +7,6 @@ var shortid = require('shortid');
 var resArr;
 var flatTree;
 
-
 // Used to get random word from LoremIpsum text
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
