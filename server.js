@@ -37,7 +37,6 @@ app.get('/activeNodeId', function (req, res) {
   var activeNode,
       activeNodeId;
 
-  console.log("flatTree: ", flatTree);
   if(flatTree && flatTree.length){
    activeNode = flatTree[getRandomInt(0, flatTree.length)];
    activeNodeId = activeNode._id;
