@@ -4,6 +4,9 @@ var url = require('url');
 var loremIpsum = require('lorem-ipsum');
 var loremArr = loremIpsum({ count: 100 }).split(" ");
 var shortid = require('shortid');
+var resArr;
+var flatTree;
+
 
 // Used to get random word from LoremIpsum text
 function getRandomInt(min, max) {
@@ -30,14 +33,28 @@ function generateLevel(parentId){
   return treeEl;
 }
 
+app.get('/activeNodeId', function (req, res) {
+  var activeNode,
+      activeNodeId;
+
+  console.log("flatTree: ", flatTree);
+  if(flatTree && flatTree.length){
+   activeNode = flatTree[getRandomInt(0, flatTree.length)];
+   activeNodeId = activeNode._id;
+  }
+
+  res.json({"activeNodeId": activeNodeId});
+});
+
 app.get('/', function (req, res) {
-  var resArr = [],
-      flatTree = [],
-      url_parts = url.parse(req.url, true),
+  var url_parts = url.parse(req.url, true),
       query = url_parts.query,
       roots = query.roots || 5,
       levels = query.levels || 3,
       children = query.children || 2;
+
+  resArr = [];
+  flatTree = [];
 
   for(var i = 0, l = roots; i < l; i++){
     var rootEl = generateLevel(),
